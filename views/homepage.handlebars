@@ -1,0 +1,12 @@
+{{#each blogs as |blog|}}
+<div class="col-md-12 mb-4 postCardEntire">
+    <h2 class="postTitle">
+        <a class = "title href=/post/{{post.id}}">{{post.name}}</a>
+    </h2>
+    <div class="title-border"></div>
+    <p class="postUser">Created by {{blog.user.name}}</p>
+    <p class ="postDescription">
+        {{post.description}}
+    </p>
+</div>
+{{/each}}
