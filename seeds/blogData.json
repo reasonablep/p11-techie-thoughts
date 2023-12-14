@@ -1,0 +1,19 @@
+
+[
+    {
+        "title": "Sample blog post",
+        "content": "This is a sample text block for techie thoughts blog!"
+    },
+
+    {
+        "title": "A blog about JSON",
+        "content": "JavaScript Object Notation is a large and fascinating topic"
+        
+    },
+
+    {
+        "title": "Another post about Sequelize? Yes!",
+        "content": "Sequelize is a database object relational mapping tool"
+    }
+
+]

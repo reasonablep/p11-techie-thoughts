@@ -1,0 +1,42 @@
+<div class="welcomeContainer">
+    <h2 class="welcomeMessage">Welcome, {{name}}!</h2>
+</div>
+
+<div class="container-fluid">
+
+<div class="row mt-4 mx-auto text-center">
+  <div class="col-md-12 new-game-container">
+    <h2>Create a new blog post:</h2>
+
+    <form class="form">
+      <div class="form-group">
+        <label for="blog-name">Game Name:</label>
+        <input class="form-input" style="max-width: 650px; width: 100%; margin: 0 auto;" type="text" id="blog-name" name="blog-name" placeholder="Enter name"/>
+      </div>
+      <div class="form-group">
+        <label for="blog-desc">Description:</label>
+        <textarea class="form-input" style="max-width: 850px; width: 100%; height: 200px; margin: 0 auto;" id="blog-desc" name="blog-desc" placeholder="Enter description"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="createButton">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if blogs.length}}
+  <div class="col-md-12">
+    <h3>Current Blogs:</h3>
+
+    <div class="blogsContainer">
+    
+    {{#each blogs as |blog|}}
+      <div class="individualBlog">
+        <h4><a class="indiBlogTitle" href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
+        <button class="btn btnOverride" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    {{/each}}
+  </div>
+  </div>
+  {{/if}}
+</div>
+<script src="../public/profile.js"></script>

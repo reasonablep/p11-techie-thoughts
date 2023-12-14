@@ -7,10 +7,20 @@ Blog.init(
     {
         id: {
             type: DataTypes.STRING,
-            defaultValue: DataTypes.UUIDV4,
+            defaultValue: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true,
           },
+
+          title: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
+          content: {
+            type: DataTypes.TEXT,
+            allowNull: false
+          }
     },
     {
         sequelize,
