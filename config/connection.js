@@ -13,7 +13,7 @@ new Sequelize (
         host: 'localhost',
         dialect: 'mysql',
         dialectOptions: {
-            decimaNumbers: true,
+            decimalNumbers: true,
         },
     });
 

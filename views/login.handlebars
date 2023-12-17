@@ -1,50 +1,45 @@
-<div class="flex">
-    <div class="forms-container"style="margin-top: -10px;">
-      <h2 class="custom-text">Please Login to Post</h2>
+<div>
+    <div>
+      <h2 class="text-4xl">Please Login to Post</h2>
 
-      <form class="form login-form">
-        <div class="form-group">
-          <label for="email-login">Email:</label>
-          <input class="form-input" type="text" id="email-login" placeholder="Enter your email" />
+      <form>
+        <div>
+          <label>Email:</label>
+          <input type="text" id="email-login" placeholder="Enter your email" />
         </div>
-        <div class="form-group">
-          <label for="password-login" class="custom-text">Password:</label>
-          <input class="form-input btn-style" type="password" id="password-login" placeholder="Enter your password" />
+        <div>
+          <label>Password:</label>
+          <input type="password" id="password-login" placeholder="Enter your password" />
         </div>
       
-        <div class="form-group">
-          <button class="btn" id="loginBtn" type="submit" class="custom-text">Login!</button>
+        <div>
+          <button type="submit">Login!</button>
         </div> 
       </form>
       <br>
       <hr>
       <br>
-
-  
-      <h2 class="custom-text" id="accSignup">I need an account!</h2>
-      {{!-- click h2 to display signup --}}
-
-      <div id="hideSignup">
-
-        <form class="form signup-form">
-          <div class="form-group">
-            <label for="name-signup" class="custom-text" id="username-label">Username must be between 6 -18 characters</label>
-            <input class="form-input flex" type="text" id="name-signup" placeholder="Enter your username" />
+      <h2 id="acc-signup">I need an account!</h2>
+      <div id="hide-signup">
+        <form>
+          <div>
+            <label id="username-label">Username must be between 6 -18 characters</label>
+            <input type="text" id="name-signup" placeholder="Enter your username" />
           </div>
-          <div class="form-group">
-            <label for="email-signup" id="email-label">Email:</label>
-            <input class="form-input flex" type="text" id="email-signup" placeholder="Enter your email"/>
+          <div>
+            <label id="email-label">Email:</label>
+            <input type="text" id="email-signup" placeholder="Enter your email"/>
           </div>
-          <div class="form-group">
-            <label for="password-signup" class="custom-text" id="password-label">Password must be at least 8 characters long including numbers and special characters</label>
-            <input class="form-input flex" type="password" id="password-signup" placeholder="Enter your password" />
+          <div>
+            <label id="password-label">Password must be at least 8 characters long including numbers and special characters</label>
+            <input type="password" id="password-signup" placeholder="Enter your password" />
           </div>
-          <div class="form-group">
-            <label for="password-signup2" class="custom-text" id="pw-tryagain">Please re-enter your password</label>
-            <input class="form-input flex" type="password" id="password-signup2" placeholder="Enter your password again" />
+          <div>
+            <label id="pw-tryagain">Please re-enter your password</label>
+            <input type="password" id="password-signup2" placeholder="Enter your password again"/>
           </div>
-          <div class="form-group">
-            <button class="btn" id="createBtn" type="submit" class="custom-text">Create Account!</button>
+          <div>
+            <button id="createBtn" type="submit">Create Account!</button>
           </div>
         </form>
 

@@ -1,20 +1,20 @@
  const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#blog-name').value.trim();
-  const description = document.querySelector('#blog-desc').value.trim();
+    const title = document.querySelector('#blog-title').value.trim();
+  const content = document.querySelector('#blog-content').value.trim();
 
-if (name && description) {
-    const response = await fetch('/api/blog', {
+if (title && content) {
+    const blogs = await fetch('/api/blog', {
         method: 'POST',
-        body: JSON.stringify({ name: description }),
+        body: JSON.stringify({ title, content }),
         headers: {
             'Content-Type': 'application/json',
         }, 
     });
 
-    if (response.ok) {
-        document.location.replace('profile');
+    if (blogs.ok) {
+        document.location.replace('/profile');
     } else {
         alert('Failed to create new blog post');
     }
@@ -27,10 +27,10 @@ if (name && description) {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch (`/api/blog/${id}`, {
+        const blogs = await fetch (`/api/blog/${id}`, {
             method: 'DELETE'
         });
-        if (response.ok) {
+        if (blogs.ok) {
             document.location.replace('/profile');
         } else {
             alert('Failed to delete blog post');
@@ -40,4 +40,4 @@ if (name && description) {
 
  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 
- document.querySelector('.blog-list').addEventListener('click', delButtonHandler);
+ document.querySelector('.blog-title').addEventListener('click', delButtonHandler);

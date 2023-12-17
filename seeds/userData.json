@@ -1,19 +1,22 @@
 
 [
     {
-        "title": "Sample blog post",
-        "content": "This is a sample text block for techie thoughts blog!"
+        "name": "Dave Jones",
+        "username": "DaveJo123",
+        "password": "drah1234"
     },
 
     {
-        "title": "A blog about JSON",
-        "content": "JavaScript Object Notation is a large and fascinating topic"
+        "name": "Mike Holmes",
+        "username": "MikeHo123",
+        "password": "grah1234"
         
     },
 
     {
-        "title": "Another post about Sequelize? Yes!",
-        "content": "Sequelize is a database object relational mapping tool"
+        "name": "Jay Swole",
+        "username": "JaySwo123",
+        "password": "blah1234"
     }
 
 ]

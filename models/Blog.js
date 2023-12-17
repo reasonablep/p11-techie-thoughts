@@ -6,8 +6,7 @@ class Blog extends Model {}
 Blog.init(
     {
         id: {
-            type: DataTypes.STRING,
-            defaultValue: DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true,
@@ -17,11 +16,28 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false
           },
+
           content: {
             type: DataTypes.TEXT,
             allowNull: false
+          },
+          date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+          },
+          user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'user',
+              key: 'id',
+            }
+
           }
+
     },
+
+
     {
         sequelize,
         modelName: 'blog'

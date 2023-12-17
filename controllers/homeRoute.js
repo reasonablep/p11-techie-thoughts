@@ -9,6 +9,12 @@ router.get('/', async (req, res) => {
                 model: User,
                 attributes: ['name'],
             },
+            ],
+
+            order: [
+                [
+                    'date_created', 'DESC'
+                ]
             ]
 
         });
@@ -34,7 +40,7 @@ router.get('/blog/:id', async (req, res) => {
                 include: [
                     {
                         model: User,
-                        attributes: 'name'
+                        attributes: ['name']
                     },
                 ],
             });
@@ -61,7 +67,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('/profile', {
+        res.render('profile', {
             ...user,
             logged_in: true
         });

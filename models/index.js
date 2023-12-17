@@ -1,6 +1,5 @@
 const User = require('./User');
 const Blog = require('./Blog');
-const sequelize = require('../app');
 
 User.hasMany(Blog, {
     foreignKey: 'user_id',
