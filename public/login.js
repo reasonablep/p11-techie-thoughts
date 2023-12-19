@@ -4,10 +4,10 @@ let toggle = 1;
 
 document.querySelector('#acc-signup').addEventListener('click', () =>{
     if (toggle === 1) {
-        document.querySelector('#hide-signup').classList.add = 'visible';
+        document.querySelector('#hide-signup').classList.add = ('invisible');
         toggle = 0;
     } else if (toggle === 0) {
-        document.querySelector('#hide-signup').classList.add = 'invisible';
+        document.querySelector('#hide-signup').classList.add = ('visible');
         toggle = 1;
     };
 });
@@ -24,6 +24,7 @@ const loginFormHandler = async (event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
+        console.log(response);
 
         if (response.ok) {
             document.location.replace('/profile');
@@ -44,29 +45,32 @@ const signUpHandler = async (event) => {
     const password2 = document.querySelector('#password-signup2').value.trim();
 
 if (name.length < 6 || name.length > 20) {
-    document.querySelector('#username-label').innerHTML('Username must be between 6 and 20 characters!');
+
+    document.querySelector('#username-label').innerHTML = 'Username must be between 6 and 20 characters!';
     return;
 } else {
-    document.querySelector('#username-label').innerHTML('Username is valid')
+    document.querySelector('#username-label').innerHTML = 'Username is valid';
 }
 
 if (email)
  {
-    document.querySelector('#email-label').innerHTML('Valid e-mail')
+    document.querySelector('#email-label').innerHTML = 'Valid e-mail';
  }
+
 if (!isPasswordLengthValid(password)) {
-    document.querySelector('#password-label').innerHTML('Password must be at least 8 characters');
+    document.querySelector('#password-label').innerHTML = 'Password must be at least 8 characters';
     return;
 }
+
 if (!isPasswordNumberValid(password)) {
-    document.querySelector('#password-label').innerHTML ('Password must include at least one number');
+    document.querySelector('#password-label').innerHTML = 'Password must include at least one number';
     return;
 }
 if (password !== password2) {
-    document.querySelector("#pw-tryagain").innerHTML('Entered passwords did not match');
+    document.querySelector("#pw-tryagain").innerHTML = 'Entered passwords did not match';
     return;
 } else {
-    document.querySelector('#pw-tryagain').innerHTML('Passwords matched')
+    document.querySelector('#pw-tryagain').innerHTML = 'Passwords matched'; 
 
 }
 
@@ -100,7 +104,7 @@ const isPasswordLengthValid = (password) => {
 
 const isPasswordNumberValid = (password) => {
     const numberRegex = /\d/;
-    return numberRegex.text(password);
+    return numberRegex.test(password);
 }
 
 const isPasswordValid = (password) => {

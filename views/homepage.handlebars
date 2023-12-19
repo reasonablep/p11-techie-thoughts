@@ -1,11 +1,10 @@
 {{#each blogs as |blog|}}
-<div>
-    <h2>
-        <a href="/blog/{{blog.id}}">{{blog.title}}</a>
-    </h2>
-    <div></div>
+<div class = "font-mono">
+    <h1 class ="font-bold text-xl">
+    <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+    </h1>
     <p>Created by {{blog.user.name}}</p>
-    <p>
+    <p class = "mb-7">
         {{blog.content}}
     </p>
 </div>

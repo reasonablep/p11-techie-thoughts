@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techie Thoughts</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-    <header class ="text-4xl text-red">
-        <h1>Techie Thoughts - A Handlebars Blog Site
+    <header class ="font-mono">
+        <h1 class ="text-4xl mb-11">Techie Thoughts
+            <h2 class="text-2xl text-lime-950 mb-11">A TailwindCSS Blog Site - Styled with TailwindCSS!
+                </h2>
         </h1>
-        </header>
+    </header>
 
+    <div class="loginBlock">
+        {{#if logged_in}}
+        <a href="/profile">
+            <a href="/"></a>
+        </a>
+        <button id="logout">Logout</button>
 
-        <div class = "loginBlock">
-            {{#if logged_in}}
-                  <a href="/profile">
-            <a href = "/" class="homeButton"></a>
-            <h2>Account</h2></a>
-            <button id = "logout">Logout</button>
-            {{else}}
-            <a href="/login"><h1>Log In</h1></a>
-            {{/if}}
-        </div>
+        {{else}}
+        <a href="/login">
+            <button class = "border rounded-full mb-11">Log In</button>
+        </a>
+        {{/if}}
+    </div>
 
     <main>
         {{{ body }}}
     </main>
     {{#if logged_in}}
-    <script src="../../public/logout.js"></script>
+    <script src="/logout.js"></script>
     {{/if}}
-    
+
 </body>
+
 </html>

@@ -19,14 +19,16 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne ({ where: { email: req.body.email }});
+        console.log(userData);
         if (!userData) {
-            res.status(400).json(error);
+            res.status(400).json("User not found");
             return;
         }
-        const goodPassword = await userData.Data.checkPassword(req.body.password);
+        const goodPassword =  userData.checkPassword(req.body.password);
+        console.log(goodPassword);
 
         if (!goodPassword) {
-            res.status(400).json(error);
+            res.status(400).json("Password incorrect");
             return;
         }
 
@@ -37,6 +39,7 @@ router.post('/login', async (req, res) => {
           res.json ({ user: userData, message: "Now logged in!" })
         });
     } catch (error) {
+        console.log(error);
         res.status(500).json(error);
     }
 });

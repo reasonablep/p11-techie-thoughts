@@ -18,12 +18,13 @@ User.init(
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
-        username: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: true
         },
 
         password: {

@@ -3,20 +3,24 @@
     {
         "name": "Dave Jones",
         "username": "DaveJo123",
-        "password": "drah1234"
+        "password": "drah1234",
+        "email": "pdkaj@aol.com"
     },
 
     {
         "name": "Mike Holmes",
         "username": "MikeHo123",
-        "password": "grah1234"
+        "password": "grah1234",
+        "email": "dawmpodawmp@google.com"
+
         
     },
 
     {
         "name": "Jay Swole",
         "username": "JaySwo123",
-        "password": "blah1234"
+        "password": "blah1234",
+        "email": "dwakdapow@gmail.com"
     }
 
 ]
