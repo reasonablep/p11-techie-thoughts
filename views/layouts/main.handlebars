@@ -7,20 +7,20 @@
     <title>Techie Thoughts</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class = "flex-col items-center pl-4">
     <header class ="font-mono">
-        <h1 class ="text-4xl mb-11">Techie Thoughts
-            <h2 class="text-2xl text-lime-950 mb-11">A TailwindCSS Blog Site - Styled with TailwindCSS!
+        <h1 class ="text-4xl mb-11 text-amber-800">Techie Thoughts
+            </h1>
+            <h2 class="text-2xl text-green mb-11">A TailwindCSS Blog Site - Styled with TailwindCSS!
                 </h2>
-        </h1>
     </header>
 
-    <div class="loginBlock">
+    <div class="login-area">
         {{#if logged_in}}
         <a href="/profile">
             <a href="/"></a>
         </a>
-        <button id="logout">Logout</button>
+        <button id="logout" class="border text-amber-800 pl-4">Logout</button>
 
         {{else}}
         <a href="/login">

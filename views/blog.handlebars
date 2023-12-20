@@ -1,11 +1,14 @@
-<div class="border">
-  <h2 class="text-4xl">
-    <a class="border">{{name}}</a>
-  </h2>
-  <p class="border">Created by {{user.name}} on {{date_created}}</p>
+
+<div>
+  <h1 class="text-4xl border">View Post Details:</h2>
+  </h1>
   <div>
-    <p class="blogContent">
+  <h2 class = "font-bold">Blog Post Title:</h2>
+  <p>{{title}}</p>
+  <h2 class="font-bold">Blog Post Content:</h2>
+    <p class="font-mono">
       {{content}}
     </p>
-  </div>
+  <p class="border">Created by {{user.name}} on {{date_created}}</p>
+</div>
 </div>

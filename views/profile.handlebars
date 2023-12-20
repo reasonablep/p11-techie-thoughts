@@ -1,39 +1,39 @@
-<div>
-  <h2>Welcome, {{name}}!</h2>
-</div>
-
-<div>
-
+<br>
+<div class = "flex font-mono">
+  <h2 class="font-bold mb-7 pl-4">Welcome, {{name}}!</h2>
   <div>
-    <div class=>
-      <h2>Create a new blog post:</h2>
-      <form class="form new-post-form">
-        <div>
-          <label for="blog-title">Blog Title:</label>
-          <input class="form-input" type="text" id="blog-title" name="blog-title" placeholder="Enter name" />
-        </div>
-        <div class="form-group">
-          <label>Content:</label>
-          <textarea id="blog-content" name="blog-content" placeholder="Enter blog content"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit">Create</button>
-        </div>
-      </form>
-    </div>
-
-    {{#if blogs.length}}
-    <div class="blog-title">
-      <h3>Current Blogs:</h3>
-      <div>
-        {{#each blogs as |blog|}}
-        <div>
-          <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
-          <button data-id="{{blog.id}}">DELETE</button>
-        </div>
-        {{/each}}
+    <br>
+    <div>
+      <div class= "gap-x-3">
+        <h2>Create a new blog post:</h2><br>
+        <form class="form new-post-form">
+          <div class="mb-7">
+            <label for="blog-title">Blog Title:</label><br>
+            <input class="form-input" type="text" id="blog-title" name="blog-title" placeholder="Enter blog title" />
+          </div>
+          <div>
+            <label>Content:</label><br>
+            <textarea class ="h-max" id="blog-content" name="blog-content" placeholder="Enter blog content"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="border text-amber-800">Create</button>
+          </div>
+        </form>
       </div>
+
+      {{#if blogs.length}}
+      <div class="blog-title">
+        <h3>Current Blogs:</h3>
+        <div>
+          {{#each blogs as |blog|}}
+          <div>
+            <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+            <button data-id="{{blog.id}}">Delete?</button>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
     </div>
-    {{/if}}
-  </div>
-  <script src="/profile.js"></script>
+    </div>
+    <script src="/profile.js"></script>

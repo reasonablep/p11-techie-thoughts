@@ -1,19 +1,19 @@
 
 [
     {
-        "title": "Sample blog post",
-        "content": "This is a sample text block for techie thoughts blog!"
+        "title": "Tailwind is GREAT!",
+        "content": "Tailwind helped me style this project in no time flat!"
     },
 
     {
-        "title": "A blog about JSON",
-        "content": "JavaScript Object Notation is a large and fascinating topic"
+        "title": "Tailwind makes styling easy by applying classes directly to HTML elements!",
+        "content": "Writing out a bunch of CSS can be a long process. With Tailwind classes can be applied directly to HTML tags with abbreviated notations"
         
     },
 
     {
-        "title": "Another post about Sequelize? Yes!",
-        "content": "Sequelize is a database object relational mapping tool"
+        "title": "Tailwind makes styling faster and more fun",
+        "content": "With Tailwind, seeing your page change is easier so styling becomes a lot more fun, and less cumbersome"
     }
 
 ]

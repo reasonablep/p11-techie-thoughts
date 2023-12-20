@@ -1,8 +1,10 @@
-<div>
-    <div>
-      <h2 class="text-4xl">Please Login to Post</h2>
 
-      <form class ='login-form'>
+
+<div class = "font-mono flex-col justify-center">
+    <div>
+      <h2 class="text-2xl mb-7">Please Login to Post</h2>
+
+      <form class ='login-form mb-7'>
         <div>
           <label>Email:</label>
           <input type="text" id="email-login" placeholder="Enter your email" />
@@ -11,14 +13,14 @@
           <label>Password:</label>
           <input type="password" id="password-login" placeholder="Enter your password" />
         </div>
-      
         <div>
-          <button type="submit">Login!</button>
+          <button type="submit" class="border text-amber-800">Login</button>
         </div> 
       </form>
-      <h2 id="acc-signup">I need an account!</h2>
+
+      <h2 id="acc-signup">I need an account</h2>
       <div id="hide-signup">
-        <form class = "signup-form">
+        <form class = "signup-form mb-7">
           <div>
             <label id="username-label">Username must be between 6 -18 characters</label>
             <input type="text" id="name-signup" placeholder="Enter your username" />
@@ -33,10 +35,10 @@
           </div>
           <div>
             <label id="pw-tryagain">Please re-enter your password</label>
-            <input type="password" id="password-signup2" placeholder="Enter your password again"/>
+            <input type="password" id="password-signup2" placeholder="Re-enter password"/>
           </div>
           <div>
-            <button id="createBtn" type="submit">Create Account!</button>
+            <button id="createBtn" type="submit" class="border text-amber-800">Create Account</button>
           </div>
         </form>
 

@@ -31,6 +31,7 @@ Blog.init(
             references: {
               model: 'user',
               key: 'id',
+              unique: true
             }
 
           }

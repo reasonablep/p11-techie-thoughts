@@ -1,4 +1,4 @@
-document.querySelector('.loginBlock').style.display = 'none';
+document.querySelector('.login-area').style.display = 'none';
 
 let toggle = 1;
 
@@ -46,7 +46,7 @@ const signUpHandler = async (event) => {
 
 if (name.length < 6 || name.length > 20) {
 
-    document.querySelector('#username-label').innerHTML = 'Username must be between 6 and 20 characters!';
+    document.querySelector('#username-label').innerHTML = 'Username must be between 6 and 18 characters!';
     return;
 } else {
     document.querySelector('#username-label').innerHTML = 'Username is valid';

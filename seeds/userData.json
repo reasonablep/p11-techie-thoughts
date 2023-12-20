@@ -4,23 +4,23 @@
         "name": "Dave Jones",
         "username": "DaveJo123",
         "password": "drah1234",
-        "email": "pdkaj@aol.com"
+        "email": "davejo@gmail.com"
     },
 
     {
         "name": "Mike Holmes",
-        "username": "MikeHo123",
+        "username": "MikeHolmes",
         "password": "grah1234",
-        "email": "dawmpodawmp@google.com"
+        "email": "mikeholmes@gmail.com"
 
         
     },
 
     {
-        "name": "Jay Swole",
-        "username": "JaySwo123",
+        "name": "Jay Marshall",
+        "username": "JayMarsh123",
         "password": "blah1234",
-        "email": "dwakdapow@gmail.com"
+        "email": "jaymarsh123@gmail.com"
     }
 
 ]
