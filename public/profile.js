@@ -23,15 +23,41 @@ if (title && content) {
 
  };
 
+ const newCommentHandler = async (event) => {
+    event.preventDefault();
+
+    const comment = document.querySelector("#comment").value.trim();
+
+    if (comment) {
+        const response = await fetch ('/api/blog', {
+            method: 'POST',
+            body: JSON.stringify({ comment }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+
+        if (response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert('Comment failed to post');
+        }
+
+    }
+
+ }
+
  const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        const blogs = await fetch (`/api/blog/${id}`, {
+        const response = await fetch (`/api/blog/${id}`, {
             method: 'DELETE'
         });
-        if (blogs.ok) {
-            document.location.replace('/profile');
+
+        console.log(response);
+        if (response.ok) {
+            alert('Blog post deleted')
         } else {
             alert('Failed to delete blog post');
         }
@@ -39,5 +65,7 @@ if (title && content) {
  };
 
  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+
+ document.querySelector('new-comment-form').addEventListener('submit', newCommentHandler )
 
  document.querySelector('.blog-title').addEventListener('click', delButtonHandler);

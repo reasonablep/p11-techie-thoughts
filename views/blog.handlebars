@@ -1,14 +1,27 @@
 
-<div>
-  <h1 class="text-4xl border">View Post Details:</h2>
+<div class = "flex space-evenly font-mono">
+  <h1 class="flex items-center text-4xl mb-11 border border-amber-800 text-amber-800">Post Details
   </h1>
-  <div>
-  <h2 class = "font-bold">Blog Post Title:</h2>
+  <div class="border border-amber-800">
+    <div class="border">
+  <h2 class = "font-bold mb-5">Blog Post Title:</h2>
   <p>{{title}}</p>
-  <h2 class="font-bold">Blog Post Content:</h2>
-    <p class="font-mono">
+  </div>
+  <div>
+  <h2 class="font-bold mb-5">Blog Post Content:</h2>
+    <p class="mb-5">
       {{content}}
     </p>
-  <p class="border">Created by {{user.name}} on {{date_created}}</p>
+    </div>
+  <p class="border-4 border-amber-800">Created by {{user.name}} on {{date_created}}</p>
 </div>
+{{#if blog.comments.length}}
+<div>
+  <ul>
+    {{each blog.comments}}
+    <li>{this.comment}</li>
+  </ul>
+</div>
+
+{{/if}}
 </div>

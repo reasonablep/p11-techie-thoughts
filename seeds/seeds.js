@@ -1,27 +1,43 @@
 const sequelize = require('../config/connection');
-const { User, Blog } = require('../models');
+const { User, Blog, Comment } = require('../models');
 
 const userData = require('./userData.json');
 const blogData = require('./blogData.json');
+const commentData = require('./commentData.json');
 
 
-const seedBlog = async () => {
+try {
 
-            await sequelize.sync({ force: true });
+    const seedBlog = async () => {
 
-            const users = await User.bulkCreate(userData, {
-                individualHooks: true,
-                returning: true
-    })
+        await sequelize.sync({ force: true });
 
-    for (const blogs of blogData) {
-        await Blog.create({
-            ...blogs,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
+        const users = await User.bulkCreate(userData, {
+            individualHooks: true,
+            returning: true
         })
-    };
 
-    process.exit(0);
-};
-    
+        const blogs = []
+
+        for (const blog of blogData) {
+            await Blog.create({
+                ...blog,
+                user_id: users[Math.floor(Math.random() * users.length)].id,
+            })
+        };
+
+        for (const comments of commentData) {
+            await Comment.create({
+                ...comments,
+                blog_id: blogs[Math.floor(Math.random() * users.length)].id,
+                user_id: users[Math.floor(Math.random() * blogs.length)].id
+            })
+        }
+
+
+    }
     seedBlog();
+}
+catch (error) {
+    console.error('Failed to seed DB');
+}

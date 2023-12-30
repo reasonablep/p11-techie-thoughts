@@ -26,6 +26,7 @@ Blog.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
           },
+
           user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -41,7 +42,9 @@ Blog.init(
 
     {
         sequelize,
-        modelName: 'blog'
+        modelName: 'blog',
+        underscored: true,
+        freezeTableName: true
     }
 );
 

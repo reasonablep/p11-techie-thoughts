@@ -3,17 +3,17 @@
   <h2 class="font-bold mb-7 pl-4">Welcome, {{name}}!</h2>
   <div>
     <br>
-    <div>
-      <div class= "gap-x-3">
+    <div class="flex justify-center">
+      <div>
         <h2>Create a new blog post:</h2><br>
         <form class="form new-post-form">
           <div class="mb-7">
             <label for="blog-title">Blog Title:</label><br>
-            <input class="form-input" type="text" id="blog-title" name="blog-title" placeholder="Enter blog title" />
+            <input class="border border-amber-800" type="text" id="blog-title" name="blog-title" placeholder="Enter blog title" />
           </div>
           <div>
-            <label>Content:</label><br>
-            <textarea class ="h-max" id="blog-content" name="blog-content" placeholder="Enter blog content"></textarea>
+            <label for ="blog-content">Content:</label><br>
+            <textarea class ="border border-amber-800 w-80 h-80" id="blog-content" name="blog-content" placeholder="Enter blog content"></textarea>
           </div>
           <div class="form-group">
             <button type="submit" class="border text-amber-800">Create</button>
@@ -23,7 +23,7 @@
 
       {{#if blogs.length}}
       <div class="blog-title">
-        <h3>Current Blogs:</h3>
+        <h3>Your Current Blogs:</h3>
         <div>
           {{#each blogs as |blog|}}
           <div>
