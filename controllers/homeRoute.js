@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -26,8 +26,12 @@ router.get('/', async (req, res) => {
 
 
         });
-    } catch (err) {
-        res.status(500).json(err);
+        
+    } catch (error) {
+        res.status(500).json({
+        message: 'Error fetching blogs',
+        error: error.message
+        });
     }
 
 });
@@ -42,6 +46,16 @@ router.get('/blog/:id', async (req, res) => {
                         model: User,
                         attributes: ['name']
                     },
+                    {
+                        model: Comment,
+                        attributes: ['comment', 'stamp', 'user_id'],
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['name']
+                            }
+                        ]
+                    }
                 ],
             });
 
@@ -53,7 +67,10 @@ router.get('/blog/:id', async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json({
+            message: 'Error while fetching blog post',
+            error: error.message
+            });
     }
 });
 
@@ -65,7 +82,14 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [{ model: Blog }]
         });
 
+        if (!userData) {
+            res.redirect('/login');
+            return;
+        }
+
         const user = userData.get({ plain: true });
+
+    
 
         res.render('profile', {
             ...user,
@@ -73,7 +97,10 @@ router.get('/profile', withAuth, async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json(error);
+        res.status(500).json({
+            message: 'Profile could not be retrieved',
+            error: error.message
+        })
     }
 });
 

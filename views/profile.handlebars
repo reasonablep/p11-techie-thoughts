@@ -27,9 +27,11 @@
         <div>
           {{#each blogs as |blog|}}
           <div>
-            <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
-            <button data-id="{{blog.id}}">Delete?</button>
-          </div>
+            <h4>
+              <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+              </h4>
+            <button data-id="{{blog.id}}" class="del-button border border-amber-800">Delete</button>
+            </div>
           {{/each}}
         </div>
       </div>

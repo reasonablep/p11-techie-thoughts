@@ -28,10 +28,12 @@ if (title && content) {
 
     const comment = document.querySelector("#comment").value.trim();
 
-    if (comment) {
-        const response = await fetch ('/api/blog', {
+    const blog_id = document.querySelector('#blog-id').value;
+
+    if (comment && blog_id) {
+        const response = await fetch (`/api/blog/${blog_id}/comment`, {
             method: 'POST',
-            body: JSON.stringify({ comment }),
+            body: JSON.stringify({ comment, blog_id }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -48,24 +50,32 @@ if (title && content) {
  }
 
  const delButtonHandler = async (event) => {
+    event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
-
+const id = event.target.getAttribute('data-id')
         const response = await fetch (`/api/blog/${id}`, {
             method: 'DELETE'
         });
 
         console.log(response);
         if (response.ok) {
-            alert('Blog post deleted')
+            alert('Blog post deleted');
+            document.location.replace('/profile')
         } else {
             alert('Failed to delete blog post');
         }
     }
  };
 
+
  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 
- document.querySelector('new-comment-form').addEventListener('submit', newCommentHandler )
+ const deleteButtons = document.querySelectorAll('.del-button');
 
- document.querySelector('.blog-title').addEventListener('click', delButtonHandler);
+ console.log(deleteButtons);
+
+ for (i=0; i<deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener('click', delButtonHandler);
+}
+
+ document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler )

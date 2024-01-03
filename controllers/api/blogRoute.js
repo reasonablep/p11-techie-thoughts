@@ -1,6 +1,40 @@
 const router = require('express').Router();
-const { Blog, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Blog, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth.js');
+
+
+router.get('/:id', async (req,res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment,
+                    attributes: ['comment', 'user_id', 'stamp'],
+                    include: [{
+                        model: User,
+                        attributes: ['name']
+                    }]
+                }
+            ],
+        });
+        if (!blogData) {
+            console.log('No blog post found');
+            res.status(404).json({message: 'No blog post found'});
+            return;
+        }
+        console.log('Blog data retrieved', blogData)
+        res.status(200).json(blogData.get ({ plain: true }));
+
+} catch (error) {
+    console.error('Error', error)
+    res.status(500).json(error);
+}
+});
+
 
 router.post('/', withAuth, async (req, res) =>{
     try {
@@ -11,22 +45,14 @@ router.post('/', withAuth, async (req, res) =>{
 
         });
         res.status(200).json(newBlog);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error creating blog post',
+            error: error.message
+    })
+}
 });
 
-router.post('/', withAuth, async (req,res) => {
-    try {
-        const newComment = await Comment.create ({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
-        res.status(200).json(newComment);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 
 router.delete('/:id', withAuth, async (req,res)=> {
@@ -38,12 +64,20 @@ router.delete('/:id', withAuth, async (req,res)=> {
             },
         });
         if (!blogData) {
-            res.status(404).json({ message: 'No blog posts found'});
+            res.status(404).json({
+                message: "No blog found with that ID",
+            });
             return;
         }
 
+        res.status(200).json(blogData);
+
     } catch (error) {
-        res.status(500).json(error);
+        console.log(error);
+        res.status(500).json({
+            message: "An error occurred while deleting the blog",
+            error: error.message
+        })
     }
 })
 

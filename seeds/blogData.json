@@ -2,18 +2,21 @@
 [
     {
         "title": "Tailwind is GREAT!",
-        "content": "Tailwind helped me style this project in no time flat!"
+        "content": "Tailwind helped me style this project in no time flat!",
+        "user_id": 1
     },
 
     {
         "title": "Tailwind makes styling easy by applying classes directly to HTML elements!",
-        "content": "Writing out a bunch of CSS can be a long process. With Tailwind classes can be applied directly to HTML tags with abbreviated notations"
+        "content": "Writing out a bunch of CSS can be a long process. With Tailwind classes can be applied directly to HTML tags with abbreviated notations",
+        "user_id": 2
         
     },
 
     {
         "title": "Tailwind makes styling faster and more fun",
-        "content": "With Tailwind, seeing your page change is easier so styling becomes a lot more fun, and less cumbersome"
+        "content": "With Tailwind, seeing your page change is easier so styling becomes a lot more fun, and less cumbersome",
+        "user_id": 3
     }
 
 ]

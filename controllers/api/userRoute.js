@@ -11,8 +11,11 @@ router.post('/', async (req, res) => {
 
         res.status(200).json({user: userData});
     });
-} catch(err) {
-    res.status(500).json(err);
+} catch(error) {
+    res.status(500).json({
+        message: 'Error logging in',
+        error: error.message
+    })
 }
 });
 
