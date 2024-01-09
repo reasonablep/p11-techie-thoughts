@@ -556,12 +556,20 @@ video {
   margin-bottom: 1.75rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
 .flex {
   display: flex;
 }
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-80 {
@@ -586,11 +594,6 @@ video {
 
 .justify-center {
   justify-content: center;
-}
-
-.gap-x-3 {
-  -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -648,6 +651,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-bold {

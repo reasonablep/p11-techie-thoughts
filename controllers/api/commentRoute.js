@@ -1,12 +1,10 @@
 const router = require('express').Router();
-const withAuth = require('../../utils/auth')
+// const withAuth = require('../../utils/auth')
 const { Comment, User } = require('../../models');
 
-router.get('/:blogId/comment', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const { blogId } = req.params.id;
-        const comments = await Comment.findAll ({
-            where: {blog_id: blogId},
+        const comments = await Comment.findByPk (req.params.blog_id,{
             include: [
                 {
                     model: User,
@@ -24,23 +22,41 @@ router.get('/:blogId/comment', withAuth, async (req, res) => {
         }
 
         res.status(200).json(comments);
+        console.log(comments);
     } catch (error) {
         console.error('Error', error)
         res.status(500).json(error);
     }
 });
 
-router.post('/:blogId/comment', withAuth, async (req,res) => {
+router.post('/:blog_id', async (req,res) => {
     try {
-        const { blogId } = req.params;
+        const { blog_id, comment } = req.body;
+
+        if (!comment) {
+            res.status(404).json({
+                message: 'No comment entered'
+            });
+            return;
+        };
+        console.log('THIS IS A USER SESSION');
+        console.log(req.session.user_id);
+
         const newComment = await Comment.create ({
-            ...req.body,
-            blog_id: blogId,
+            comment: comment,
+            blog_id: blog_id,
             user_id: req.session.user_id
         });
+
+
         res.status(200).json(newComment);
-    } catch (err) {
-        res.status(500).json(err);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Failed to post comment',
+            error: error.message
+        })
     }
 });
 

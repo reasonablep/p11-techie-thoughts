@@ -5,14 +5,14 @@
     <br>
     <div class="flex justify-center">
       <div>
-        <h2>Create a new blog post:</h2><br>
+        <h2 class="font-bold">Create a new blog post:</h2><br>
         <form class="form new-post-form">
           <div class="mb-7">
-            <label for="blog-title">Blog Title:</label><br>
+            <label class="font-bold" for="blog-title">Blog Title:</label><br>
             <input class="border border-amber-800" type="text" id="blog-title" name="blog-title" placeholder="Enter blog title" />
           </div>
           <div>
-            <label for ="blog-content">Content:</label><br>
+            <label class="font-bold" for ="blog-content">Content:</label><br>
             <textarea class ="border border-amber-800 w-80 h-80" id="blog-content" name="blog-content" placeholder="Enter blog content"></textarea>
           </div>
           <div class="form-group">
@@ -22,17 +22,25 @@
       </div>
 
       {{#if blogs.length}}
-      <div class="blog-title">
-        <h3>Your Current Blogs:</h3>
+      <div class="blog-title grid grid-cols-3">
+        <h3 class="font-bold ml-5">Your Current Blogs:</h3>
+        <br>
         <div>
           {{#each blogs as |blog|}}
-          <div>
+
+          <section>
+            <div class="border border-amber-800 mb-5">
+            <span class="font-bold">Blog Title:</span>
             <h4>
               <a href="/blog/{{blog.id}}">{{blog.title}}</a>
               </h4>
-            <button data-id="{{blog.id}}" class="del-button border border-amber-800">Delete</button>
-            </div>
+              </div>
+            <button data-id="{{blog.id}}" class="del-button border border-amber-800 mb-7">Delete</button>
+            </section>
           {{/each}}
+          <p class=" text-xs">
+          Click blog title to expand
+          </p>
         </div>
       </div>
       {{/if}}

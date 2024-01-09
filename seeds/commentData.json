@@ -2,21 +2,17 @@
 [
     {
         "comment": "Tailwind sounds cool thanks for sharing",
-  
-        "user_id": "1",
         "blog_id": "1"
     },
 
     {
         "comment": "Sounds interesting. Thanks!",
-        "user_id": "2",
         "blog_id": "2"
         
     },
 
     {
         "comment": "Can't wait to try it thanks.",
-        "user_id": "3",
         "blog_id": "3"
     }
 

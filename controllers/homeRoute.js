@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
             order: [
                 [
-                    'date_created', 'DESC'
+                    'createdAt', 'DESC'
                 ]
             ]
 
@@ -60,6 +60,8 @@ router.get('/blog/:id', async (req, res) => {
             });
 
         const blogs = blogData.get({ plain: true });
+
+        console.log(blogs);
 
         res.render('blog', {
             ...blogs,

@@ -30,8 +30,9 @@
   <h3 class="font-bold mb-5">Add a comment:</h3>
   <form class="new-comment-form">
     <textarea id="comment" placeholder="Enter your comment"></textarea>
+      <input type="hidden" id="blog-id" value="{{id}}">
     <button class="border border-amber-800" type="submit">Submit your comment</button>
   </form>
-  <input type="hidden" id="blog-id" value="{{blog.id}}">
 </div>
 </div>
+<script src="/blog.js"></script>

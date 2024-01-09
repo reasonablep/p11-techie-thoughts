@@ -26,11 +26,15 @@ if (title && content) {
  const newCommentHandler = async (event) => {
     event.preventDefault();
 
+    const blog_id = document.getElementById('blog-id').value;
     const comment = document.querySelector("#comment").value.trim();
 
-    const blog_id = document.querySelector('#blog-id').value;
+    console.log('This is comment data');
+    console.log(comment);
+    console.log(blog_id);
+    
 
-    if (comment && blog_id) {
+    if (comment) {
         const response = await fetch (`/api/blog/${blog_id}/comment`, {
             method: 'POST',
             body: JSON.stringify({ comment, blog_id }),
@@ -40,6 +44,7 @@ if (title && content) {
         })
 
         if (response.ok) {
+            console.log(response);
             document.location.replace('/profile');
         } else {
             alert('Comment failed to post');
@@ -78,4 +83,9 @@ const id = event.target.getAttribute('data-id')
     deleteButtons[i].addEventListener('click', delButtonHandler);
 }
 
- document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler )
+
+const comments = document.querySelectorAll('.new-comment-form')
+
+console.log(comments);
+
+// .addEventListener('submit', newCommentHandler);
