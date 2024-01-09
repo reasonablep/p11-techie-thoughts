@@ -46,8 +46,6 @@ const id = event.target.getAttribute('data-id')
 
  const deleteButtons = document.querySelectorAll('.del-button');
 
- console.log(deleteButtons);
-
  for (i=0; i<deleteButtons.length; i++) {
     deleteButtons[i].addEventListener('click', delButtonHandler);
 }
