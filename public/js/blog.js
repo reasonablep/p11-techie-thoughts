@@ -3,10 +3,6 @@ const newCommentHandler = async (event) => {
 
     const blog_id = document.getElementById('blog-id').value;
     const comment = document.querySelector("#comment").value.trim();
-
-    console.log('This is comment data');
-    console.log(comment);
-    console.log(blog_id);
     
 
     if (comment) {
@@ -20,7 +16,7 @@ const newCommentHandler = async (event) => {
 
         if (response.ok) {
             console.log(response);
-            document.location.replace('/profile');
+            window.location.reload();
         } else {
             alert('Comment failed to post');
         }

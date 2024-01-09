@@ -21,9 +21,11 @@ The site simply requires a browser and a valid e-mail address in order to post. 
 ## Usage
 Please see the below screenshots for details of usage, 
 
-![Screenshot1]
+![TechieThoughtsHomePage](./public/assets/TTSCR1.png)
 
-![Screnshot 2]
+![TechieThoughtsLogin](./public/assets/TTSCR2.png)
+
+![TechieThoughtsAddBlog](./public/assets/TTSCR3.png)
 
 
 ## License

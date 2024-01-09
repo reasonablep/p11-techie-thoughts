@@ -9,6 +9,11 @@ router.get('/', async (req, res) => {
                 model: User,
                 attributes: ['name'],
             },
+
+            {
+                model: Comment,
+                attributes: ['comment']
+            }
             ],
 
             order: [
@@ -19,18 +24,22 @@ router.get('/', async (req, res) => {
 
         });
 
+
+
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
         res.render('homepage', {
             blogs,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+
 
 
         });
-        
+
     } catch (error) {
         res.status(500).json({
-        message: 'Error fetching blogs',
-        error: error.message
+            message: 'Error fetching blogs',
+            error: error.message
         });
     }
 
@@ -61,8 +70,6 @@ router.get('/blog/:id', async (req, res) => {
 
         const blogs = blogData.get({ plain: true });
 
-        console.log(blogs);
-
         res.render('blog', {
             ...blogs,
             logged_in: req.session.logged_in
@@ -72,7 +79,7 @@ router.get('/blog/:id', async (req, res) => {
         res.status(500).json({
             message: 'Error while fetching blog post',
             error: error.message
-            });
+        });
     }
 });
 
@@ -91,7 +98,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-    
+
 
         res.render('profile', {
             ...user,
@@ -107,7 +114,7 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 
-router.get('/login', (req,res) => {
+router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/profile');
         return;

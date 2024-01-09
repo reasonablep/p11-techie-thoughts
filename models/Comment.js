@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const moment = require('moment');
 
 class Comment extends Model {}
 
@@ -26,7 +27,10 @@ Comment.init(
         stamp: {
 
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            defaultValue: DataTypes.NOW,
+            get() {
+                return moment(this.getDataValue('stamp')).format('YYYY-MM-DD');
+            }
 
         },
 

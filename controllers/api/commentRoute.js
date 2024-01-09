@@ -1,8 +1,8 @@
 const router = require('express').Router();
-// const withAuth = require('../../utils/auth')
+const withAuth = require('../../utils/auth')
 const { Comment, User } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const comments = await Comment.findByPk (req.params.blog_id,{
             include: [
@@ -29,9 +29,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/:blog_id', async (req,res) => {
+router.post('/:blog_id', withAuth, async (req,res) => {
     try {
-        const { blog_id, comment } = req.body;
+        const { blog_id, comment, name } = req.body;
 
         if (!comment) {
             res.status(404).json({
@@ -39,12 +39,12 @@ router.post('/:blog_id', async (req,res) => {
             });
             return;
         };
-        console.log('THIS IS A USER SESSION');
         console.log(req.session.user_id);
 
         const newComment = await Comment.create ({
             comment: comment,
             blog_id: blog_id,
+            name: name,
             user_id: req.session.user_id
         });
 

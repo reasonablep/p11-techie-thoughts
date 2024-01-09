@@ -13,18 +13,21 @@
       {{content}}
     </p>
     </div>
-  <p class="border-4 border-amber-800">Created by {{user.name}} on {{date_created}}</p>
+  <p class="border-4 border-amber-800">Created by {{user.name}} on {{createdAt}}</p>
 </div>
 {{#if comments}}
 <div class="border">
      <h3 class="font-bold mb-5">Comments:</h3>
   <ul>
     {{#each comments}}
-    <li>{{this.comment}}</li>
+    <li>
+      <p> {{this.comment}}</p>
+      <p>Comment by: {{this.user.name}} on {{stamp}}</p>
+      <br>
+      </li>
     {{/each}}
   </ul>
 </div>
-
 {{/if}}
 <div class="border">
   <h3 class="font-bold mb-5">Add a comment:</h3>
@@ -35,4 +38,4 @@
   </form>
 </div>
 </div>
-<script src="/blog.js"></script>
+<script src="/js/blog.js"></script>

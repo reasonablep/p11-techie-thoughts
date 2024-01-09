@@ -1,3 +1,4 @@
+   <h1 class="border border-amber-800 text-xl font-mono">Current Blog Post Feed:</h1>
 {{#each blogs as |blog|}}
 <div class = "font-mono divide-y divide-amber-800">
     <div>
@@ -5,12 +6,15 @@
     <p>Created by {{blog.user.name}}</p>
     <p class = "mb-7">
         {{blog.content}}</p>
-        {{#if logged_in}}
-        <div>
-        <button class="border border-amber-800">Comment</button>
-        </div>
-        {{/if}}
+        
+         {{#each blog.comments as |comment|}}
+        <div class="font-bold">Comment:
+           </div>
+           <p>
+            {{comment.comment}}
+            </p>
+    {{/each}}
     </div>
     {{/each}}
-    <h2 class="text-xs">Must be logged in to comment</h2>
+    <h2 class="text-xs">*Must be logged in to comment</h2>
 </div>
